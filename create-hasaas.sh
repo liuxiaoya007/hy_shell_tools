@@ -49,7 +49,7 @@ function TEST(){
 
 function CRKVM(){
 	log "---------start to execute the ${0##*/} script---------"
-	if [ -d ~/.ssh/id_rsa.pub ];then
+	if [ -f ~/.ssh/id_rsa.pub ];then
 		SKEY="$(cat ~/.ssh/id_rsa.pub)"
 	else
 		log "---------当前主机不存在密钥对,使用您的私有密钥对---------"
