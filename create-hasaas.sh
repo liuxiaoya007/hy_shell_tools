@@ -84,7 +84,7 @@ function ASPLK(){
 	log "---------start ansible-playbook---------"
 	sed -i "s/172.16.9.100/${IP[0]}/" ${DIR}saasha_deploy/group_vars/all
 	sed -i '/StrictHostKeyChecking ask/a\StrictHostKeyChecking no' /etc/ssh/ssh_config
-	if [ -d ~/.ssh/id_rsa.pub ];then
+	if [ -f ~/.ssh/id_rsa.pub ];then
 		ansible-playbook -i ${DIR}saasha_deploy/inventory/all ${DIR}saasha_deploy/run.yml
 	elif [ -f ${DIR}aliyun ];then
 		ansible-playbook --key-file=${DIR}aliyun -i ${DIR}saasha_deploy/inventory/all ${DIR}saasha_deploy/run.yml
